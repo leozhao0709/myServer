@@ -1,14 +1,14 @@
 package com.lzhao.wechat.settings.controller;
 
 import com.lzhao.wechat.settings.properties.WeChatProperties;
+import com.lzhao.wechat.util.MessageUtil;
 import com.lzhao.wechat.util.SignUtil;
 import org.apache.log4j.Logger;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * Created by lzhao on 5/29/17.
@@ -41,6 +41,18 @@ public class ConfigController {
         }
 
         return null;
+    }
+
+    @PostMapping(value = "securitycheck")
+    public void getMessage(HttpServletRequest request) {
+        try
+        {
+            Map<String, String> message = MessageUtil.parseXml(request);
+            logger.info(message);
+        } catch (Exception e)
+        {
+            logger.error(e);
+        }
     }
 
 }

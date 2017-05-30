@@ -12,7 +12,7 @@ public class WeChatProperties {
 
     private String token;
     private String encodingAESKey;
-    private String appID;
+    private String appIDTest;
 
     public String getToken() {
         return token;
@@ -31,10 +31,10 @@ public class WeChatProperties {
     }
 
     public String getAppID() {
-        return appID;
+        return appIDTest;
     }
 
     public void setAppID(String appID) {
-        this.appID = appID;
+        this.appIDTest = appID;
     }
 }
